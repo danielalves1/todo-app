@@ -21,6 +21,7 @@ export default class AddListModal extends React.Component {
     "#D85963",
     "#D88559",
   ];
+
   state = {
     name: "",
     color: this.backgroundColors[0],
@@ -28,7 +29,11 @@ export default class AddListModal extends React.Component {
 
   createTodo = () => {
     const { name, color } = this.state;
-    tempData.push({ name, color, todos: [] });
+    
+    const list = { name, color };
+
+    this.props.addList(list);
+
     this.setState({ name: "" });
     this.props.closeModal();
   };
