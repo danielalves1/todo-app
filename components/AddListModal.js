@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import colors from "../Colors";
-import tempData from "../tempData";
 
 export default class AddListModal extends React.Component {
   backgroundColors = [
