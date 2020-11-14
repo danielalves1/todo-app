@@ -30,7 +30,10 @@ export default class TodoModal extends Component {
   addTodo = () => {
     let list = this.props.list;
 
-    if (!list.todos.some((todo) => todo.title === this.state.newTodo)) {
+    if (
+      !list.todos.some((todo) => todo.title === this.state.newTodo) &&
+      this.state.newTodo !== ""
+    ) {
       list.todos.push({ title: this.state.newTodo, completed: false });
       this.props.updateList(list);
     }
@@ -78,13 +81,13 @@ export default class TodoModal extends Component {
 
   rightActions = (dragX, index) => {
     const scale = dragX.interpolate({
-      inputRange: [-100, 0],
+      inputRange: [-80, 0],
       outputRange: [1, 0.9],
       extrapolate: "clamp",
     });
 
     const opacity = dragX.interpolate({
-      inputRange: [-100, -20, 0],
+      inputRange: [-80, -20, 0],
       outputRange: [1, 0.9, 0],
       extrapolate: "clamp",
     });
